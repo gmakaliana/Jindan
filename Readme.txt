@@ -18,7 +18,7 @@ Distributed Database Systems Project [Jindan]
 2.2 Spinning the Cluster Nodes
     - docker-compose up -d
 
-2.3 Verication
+2.3 Verification
     - docker ps 
 
 3.1 Getting into master node
@@ -33,7 +33,7 @@ Distributed Database Systems Project [Jindan]
     - DELETE from facility WHERE facilityid = 1;
     - UPDATE facility SET facilityname = 'jake', emailaddress = 'jake@mail.com' WHERE facilityid = 1;
 
-    - \dt ( display all tables in a selected )
+    - \dt ( display all tables in a selected database )
     - \q ( quit from a database )
 
 4.1 Create Tables Queries on "postgres" database
@@ -143,7 +143,7 @@ VALUES ('John Doe', '56789110', '500', '2023-05-01', 1),
 
 6.1 Setup web app on master that ingests data from distributed DB
 
-    // Requirements
+    Requirements:
    
        - Update your repository
        - Install sudo
@@ -154,7 +154,77 @@ VALUES ('John Doe', '56789110', '500', '2023-05-01', 1),
        - setup react and create basic app
        - Test installation
 
-7.1 Connection
+7.1 Connection files
+    - facility_model.js
+    - index.js 
+  
+7.2 Creating an API server with Node.js and Express
+    
+    - Create a new directory and set a new npm package from your terminal with the following commands.
+    - mkdir node-postgres 
+    - cd node-postgres
+    - npm init
+
+    - You can fill in your package information as you like, but here is an example of my package.json:
+
+     {
+  	"name": "node-postgres",
+  	"version": "1.0.0",
+  	"description": "Learn how NodeJS and Express can interact with PostgreSQL",
+  	"main": "index.js",
+  	"license": "ISC"
+      }
+
+     - Next, install the required packages with the following command:
+           npm i express pg
+     - Once both are installed, create an " index.js " file with the same content as the one provided with this package in "index.js" file.
+     - Open your terminal in the same directory and run "node index.js" when in "node-postgres" folder.
+       Your Node application will run on port 3002, so open your browser and navigate to http://localhost:3002.
+       You’ll see “the contents of facility table” displayed in your browser.
+ 
+       You now have everything you need to write your API.
+
+     - Making NodeJS talk with Postgres
+
+     - Create a new file named "facility_model.js" and input the same code as 
+       the one provided in the same file provided with this package in "facility_model.js" file. 
+
+
+8.1 UI files
+    - App.js
+    - index2.js
+
+8.2 Creating your React application
+
+    - Let’s bootstrap your React app with the " create-react-app " command.
+            npx create-react-app react-postgres
+  
+    - In your React app directory, you can remove everything inside the src/ directory.
+
+      - Now let’s write a simple React app from scratch.
+
+      - First, create an "App.js" file with the same content as provided with the package in "App.js" file.
+
+    - Finally, create an "index.js" file with the same content as "index2.js" file provided with this package and render the App component.
+    - Now run your React app with " npm start " when in "react-postgres" folder. 
+      You can test and see how the data collected from your React application is recorded into PostgreSQL.
+
+9.1 Getting started with Postgres in your React app ( below is the link )
+
+    https://blog.logrocket.com/getting-started-with-postgres-in-your-react-app/
+
+10.1 The html files that build our planned App UI are also provided.
+
+     - login.html  ( You can first open this file using web browser to see how our App UI looks like)
+     - hospital.html
+     - bloodbank.html
+     - searchblood.html
+     - updateblood.html
+     - updatebloodbank.html
+
+
+
+
 
 
        
