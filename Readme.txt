@@ -11,6 +11,9 @@ Distributed Database Systems Project [Jindan]
 
 2. Network Setup
    - docker network create jindan-net
+   
+   - Configuring the number of worker nodes
+      - docker-compose -p jindan up --scale worker=3
 
 2.1 Cluster Configuration
     - docker-compose file
